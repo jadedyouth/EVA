@@ -15,6 +15,20 @@ int psupin = 13; //PSU ON and OFF A42 NPN Transistor attached between green and 
 SNESpaduino Spad(6, 7, 5); //clock, latch, data 
 uint16_t btns;
 
+//Potentiometer input
+int potOne = 0; //for Hue
+int potTwo = 0; //for Saturation
+int potThree = 0; //for Value
+int potFour = 0; // for timer 1
+int potFive = 0; //for timer 2
+
+//buttons
+int butOne = 0;
+int butValOne = 0;
+int butTwo = 0;
+int butValTwo = 0;
+int butThree = 0;
+
 //Serial input
 #define SERIAL_BAUDRATE 115200 
 #define SERIAL_TIMEOUT 5
@@ -27,11 +41,10 @@ int Trec = 0; //serial ASCII for getting out of the pause loop
 //Imported from the old funkboxing program so I could run a couple of the patterns from there for now. Obviously not mine, but it'll either get improved or removed with time.
 #define LED_COUNT 90        
 #define LED_DT 3             //SERIAL DATA PIN
-// #define LED_CK 13           //commented out for ws28 chip  
 int BOTTOM_INDEX = 0;
 int TOP_INDEX = int(LED_COUNT/2);
 int EVENODD = LED_COUNT%2;
-struct CRGB leds[LED_COUNT];
+struct CRGB leds[136]; //90 for the sheet 46 to display the pots in the jar
 int ledsX[LED_COUNT][3]; 
 
 // int thisdelay = 20;          //-FX LOOPS DELAY VAR //Replaced by waitFour
@@ -103,6 +116,8 @@ void copy_led_array(){
 unsigned long previousMillisPaintSec = 0;
 const long intervalPaintSec = 2000;
 
+
+
 //Definitions
 int prec = 0; //Serial ASCII
 int pmode = 48; //starts in the middle (pixel 48)
@@ -113,11 +128,11 @@ int brushv = 0; //Value for copy/paste pixel HSV
 int defaultHue = 0; //for changing the hue on all the pixels at once
 
 //Needed to define the HSV for all 90 pixels
-                    //More Naming Conventions: it wouldnt let me use numbers so i had to use letters. aa for 0, ab for 1, ac for 2 etc. so paah is pixel 0 hue, paas is pixel 0 saturation.
+                    //More Naming Conventions: i thought it wouldnt let me use numbers so i had to use letters. aa for 0, ab for 1, ac for 2 etc. so p00h is pixel 0 hue, p00s is pixel 0 saturation.
 //Hues
-int paah = defaultHue; //Pixel 0
-int pabh = defaultHue; //1
-int pach = defaultHue; //2
+int p00h = defaultHue; //Pixel 0
+int p01h = defaultHue; //1
+int p02h = defaultHue; //2
 int padh = defaultHue; //3
 int paeh = defaultHue; //4
 int pafh = defaultHue; //5
@@ -163,10 +178,10 @@ int pbsh = defaultHue;
 int pbth = defaultHue; 
 int pbuh = defaultHue;
 int pbvh = defaultHue;
-int pbwh = defaultHue;
-int pbxh = defaultHue;
-int pbyh = defaultHue;
-int pbzh = defaultHue;
+int p48h = defaultHue;
+int p49h = defaultHue;
+int p50h = defaultHue;
+int p51h = defaultHue;
 int pcah = defaultHue;
 int pcbh = defaultHue;
 int pcch = defaultHue;
@@ -207,9 +222,9 @@ int pdkh = defaultHue;
 int pdlh = defaultHue;
 
 //Saturations
-int paas = 255;
-int pabs = 255;
-int pacs = 255;
+int p00s = 255;
+int p01s = 255;
+int p02s = 255;
 int pads = 255;
 int paes = 255;
 int pafs = 255;
@@ -255,10 +270,10 @@ int pbss = 255;
 int pbts = 255;
 int pbus = 255;
 int pbvs = 255;
-int pbws = 255;
-int pbxs = 255;
-int pbys = 255;
-int pbzs = 255;
+int p48s = 255;
+int p49s = 255;
+int p50s = 255;
+int p51s = 255;
 int pcas = 255;
 int pcbs = 255;
 int pccs = 255;
@@ -299,9 +314,9 @@ int pdks = 255;
 int pdls = 255;
 
 //Values
-int paav = 0;
-int pabv = 0;
-int pacv = 0;
+int p00v = 0;
+int p01v = 0;
+int p02v = 0;
 int padv = 0;
 int paev = 0;
 int pafv = 0;
@@ -347,10 +362,10 @@ int pbsv = 0;
 int pbtv = 0;
 int pbuv = 0;
 int pbvv = 0;
-int pbwv = 0;
-int pbxv = 0;
-int pbyv = 0;
-int pbzv = 0;
+int p48v = 0;
+int p49v = 0;
+int p50v = 0;
+int p51v = 0;
 int pcav = 0;
 int pcbv = 0;
 int pccv = 0;
@@ -390,11 +405,11 @@ int pdjv = 0;
 int pdkv = 0;
 int pdlv = 0;
 
-//Needed to be done again for the fixed palette mode. Most of these have nothing stored in them yet. when they're needed for a colour, the inetgers for the relevant pixel are put together below. Empty spaces are used pixels.
+//Needed to be done again for the fixed palette mode. Most of these have nothing stored in them yet. when they're needed for a colour, the inetgers for the relevant pixel are put together below. Empty sp02es are used pixels.
 //Hue
-int ppaah = 0; //0
-int ppabh = 0; //1
-int ppach = 0; //2
+int pp00h = 0; //0
+int pp01h = 0; //1
+int pp02h = 0; //2
 int ppadh = 0; //3
 int ppaeh = 0; //4
 int ppafh = 0; //5
@@ -441,9 +456,9 @@ int ppbth = 0; //45
 int ppbuh = 0; //46
 
 
-int ppbxh = 0; //49
-int ppbyh = 0; //50
-int ppbzh = 0; //51
+int pp49h = 0; //49
+int pp50h = 0; //50
+int pp51h = 0; //51
 int ppcah = 0; //52
 int ppcbh = 0; //53
 int ppcch = 0; //54
@@ -484,9 +499,9 @@ int ppdkh = 0;
 int ppdlh = 0;
 
 //Saturations
-int ppaas = 255;
-int ppabs = 255;
-int ppacs = 255;
+int pp00s = 255;
+int pp01s = 255;
+int pp02s = 255;
 int ppads = 255;
 int ppaes = 255;
 int ppafs = 255;
@@ -533,9 +548,9 @@ int ppbts = 255; //45
 int ppbus = 255; //46
 
 
-int ppbxs = 255; //49
-int ppbys = 255;
-int ppbzs = 255;
+int pp49s = 255; //49
+int pp50s = 255;
+int pp51s = 255;
 int ppcas = 255;
 int ppcbs = 255;
 int ppccs = 255;
@@ -576,9 +591,9 @@ int ppdks = 255;
 int ppdls = 255;
 
 //Values 
-int ppaav =  0; //0
-int ppabv =  0; //1
-int ppacv =  0;
+int pp00v =  0; //0
+int pp01v =  0; //1
+int pp02v =  0;
 int ppadv =  0;
 int ppaev =  0;
 int ppafv =  0;
@@ -625,9 +640,9 @@ int ppbtv =  0;//45
 int ppbuv =  0; //46
 
 
-int ppbxv = 0; //49
-int ppbyv = 0; //50
-int ppbzv = 0;
+int pp49v = 0; //49
+int pp50v = 0; //50
+int pp51v = 0;
 int ppcav = 0;
 int ppcbv = 0;
 int ppccv = 0;
@@ -669,9 +684,9 @@ int ppdlv = 0; //89
 
 //Assigned Palettes HSV
 //48 Burnt Orange
-int ppbwh = 26; 
-int ppbws = 230;
-int ppbwv =  150;  
+int pp48h = 26; 
+int pp48s = 230;
+int pp48v =  150;  
 //47 lUCYD Pink
 int ppbvh = 221; 
 int ppbvs = 210; 
@@ -686,15 +701,18 @@ int ppcis = 2230;
 int ppciv = 130;  
 
 
+elapsedMillis te;     
 void setup() {
 pinMode(psupin, OUTPUT); //sets pin leading to the PSU transistor to output 
-
+  pinMode(12, INPUT);  
+  pinMode(11, INPUT); 
  Serial.begin(SERIAL_BAUDRATE);  //for chatting to the PC    
  Serial.setTimeout(SERIAL_TIMEOUT);
  LEDS.setBrightness(max_bright); 
- LEDS.addLeds<WS2811, LED_DT, GRB>(leds, LED_COUNT); //most of them still work ;)
-   
-   PSU_ON ();  //power supply on
+ LEDS.addLeds<WS2811, LED_DT, GRB>(leds, LED_COUNT); //most of them still work ;) //the led sheet
+ FastLED.addLeds<APA102, 22, 23, BGR>(leds, 90, 46);  //the strip for the pots 90 is the index where the next strip starts and 46 is the number of leds on the second strip, 22 and 23 are the data and clock pins for that strip
+
+PSU_ON ();  //power supply on
 clearsheet (); //turns off all the lights/clears out any previous commands
 //welcome ();  //sends welcome message over serial
 
@@ -703,15 +721,24 @@ waitFive(); //replaced my delays with loops that do nothing for specified times
  
 //tutorial(); //Sends LED Dropsheet for dummies over the serial
 
+for(int i = 90; i < 136; i++) {
+   leds[i] = CHSV(potOne, potTwo, 0); }
+   LEDS.show(); 
+
 }
 
 void loop() {
+  
+
+ 
   voltage (); //check to see if power is still on
   checkinput (); //check to see if there's anything from the keyboard coming in over the serial connection
   snesIn (); //check if anything has been pressed on the SNES Controller
-  paletteInput (); //Checks SNES inputs in palatte mode
+ checkPots (); //checks to see if anything has changed from the potentiometers
 
-   switch (mode) { //main menu contains a couple of very basic LED patterns and paint and palette modes
+if (te > 0){
+
+switch (mode) { //main menu contains a couple of very basic LED patterns and paint and palette modes
   case 0: random_burst_md(); break;     
   case 1: new_rainbow_loop_md();  break; 
   case 2: random_red();  break;
@@ -723,5 +750,53 @@ void loop() {
   break;
  
   }
-  
+
 }
+
+     
+if (te > 0 && te < potFour){
+
+
+
+if (butValOne == 1){  
+for(int i = 90; i < 136; i++) {
+   leds[i] = CHSV(potOne, potTwo, potThree); }
+   LEDS.show(); 
+}
+else {
+
+  for(int i = 90; i < 136; i++) {
+   leds[i] = CHSV(potOne, potTwo, 0); }
+   LEDS.show(); 
+}
+
+}
+
+if (te > potFour && te < potFive + potFour){
+for(int i = 90; i < 136; i++) {
+   leds[i] = CHSV(potOne, potTwo, 0); }
+   LEDS.show(); 
+    
+//Serial.print(potFour); Serial.print("   "); Serial.println(potFive); 
+
+}
+    
+
+
+    
+if (te > potFour + potFive) {te =0;}
+
+}
+
+ 
+ 
+ 
+
+
+
+
+
+  
+  
+ 
+

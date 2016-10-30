@@ -1,13 +1,23 @@
  /*
 JUST SPACE TO STORE SHIT
 
-  use this to add an extra input time during long loops:
+  use this to add an extra input time and interup the loop during long loops:
  
- if (Serial.available() > 0)  
+ btns = Spad.getButtons(false);
+      if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
     checkinput(); 
-    
-   else { // rest of loop goes here }
+     }
 
+ else { 
+
+
+//for push button switches
+ butOne = digitalRead(12);
+ if (butOne == LOW){
+ switch (butValOne){
+ case 0:  {butValOne = 1; delay (100); break; } 
+ case 1:  {butValOne = 0; delay (100); break; } } }
 
 
 //COLOURS

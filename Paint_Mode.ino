@@ -7,7 +7,8 @@ void checkpaintserial (){
   if (prec == 'm'){    //gets you out of paint mode and back to the main menu
       mode = Serial.parseInt(); }
 
-       if (prec == '~') {printPaint (); } //prints all the HSV numbers to the serial so you can capture it later
+      if (prec == '~') {printPaint (); } //prints all the HSV numbers to the serial so you can capture it later
+      if (prec == '`') {grabPixelNos ();} //prints all the led numbers of active pixels so you can manually copy them into an array to make pretty patterns later
       if (prec == 'P') {pause (); } //pauses everything until you enter the same command again. note this is a capital P, not to be confused with lower case p for pixel number in this mode.
      
 
@@ -269,9 +270,9 @@ if (pmode == 69) {  Serial.println(); Serial.println("...lol");} //because it's 
 //Keyboard serial inputs for changing the HSV. once the pixel is called up, typing in h, s, or v and a number between 0 and 255 will change it. eg h96 will turn the flashing pixel green.
 if (prec == 'h'){   //hue
       
-      if (pmode == 0) { paah = Serial.parseInt();}
-      if (pmode == 1) { pabh = Serial.parseInt();} 
-      if (pmode == 2) { pach = Serial.parseInt();}
+      if (pmode == 0) { p00h = Serial.parseInt();}
+      if (pmode == 1) { p01h = Serial.parseInt();} 
+      if (pmode == 2) { p02h = Serial.parseInt();}
       if (pmode == 3) { padh = Serial.parseInt();} 
       if (pmode == 4) { paeh = Serial.parseInt();}
       if (pmode == 5) { pafh = Serial.parseInt();} 
@@ -317,10 +318,10 @@ if (prec == 'h'){   //hue
       if (pmode == 45) { pbth = Serial.parseInt();} 
       if (pmode == 46) { pbuh = Serial.parseInt();} 
       if (pmode == 47) { pbvh = Serial.parseInt();}
-      if (pmode == 48) { pbwh = Serial.parseInt();} 
-      if (pmode == 49) { pbxh = Serial.parseInt();}
-      if (pmode == 50) { pbyh = Serial.parseInt();} 
-      if (pmode == 51) { pbzh = Serial.parseInt();}
+      if (pmode == 48) { p48h = Serial.parseInt();} 
+      if (pmode == 49) { p49h = Serial.parseInt();}
+      if (pmode == 50) { p50h = Serial.parseInt();} 
+      if (pmode == 51) { p51h = Serial.parseInt();}
       if (pmode == 52) { pcah = Serial.parseInt();} 
       if (pmode == 53) { pcbh = Serial.parseInt();}
       if (pmode == 54) { pcch = Serial.parseInt();}
@@ -365,9 +366,9 @@ if (prec == 'h'){   //hue
    
    if (prec == 's'){   //saturation
       
-      if (pmode == 0) { paas = Serial.parseInt();}
-      if (pmode == 1) { pabs = Serial.parseInt();} 
-      if (pmode == 2) { pacs = Serial.parseInt();}
+      if (pmode == 0) { p00s = Serial.parseInt();}
+      if (pmode == 1) { p01s = Serial.parseInt();} 
+      if (pmode == 2) { p02s = Serial.parseInt();}
       if (pmode == 3) { pads = Serial.parseInt();} 
       if (pmode == 4) { paes = Serial.parseInt();}
       if (pmode == 5) { pafs = Serial.parseInt();} 
@@ -413,10 +414,10 @@ if (prec == 'h'){   //hue
       if (pmode == 45) { pbts = Serial.parseInt();} 
       if (pmode == 46) { pbus = Serial.parseInt();} 
       if (pmode == 47) { pbvs = Serial.parseInt();}
-      if (pmode == 48) { pbws = Serial.parseInt();} 
-      if (pmode == 49) { pbxs = Serial.parseInt();}
-      if (pmode == 50) { pbys = Serial.parseInt();} 
-      if (pmode == 51) { pbzs = Serial.parseInt();}
+      if (pmode == 48) { p48s = Serial.parseInt();} 
+      if (pmode == 49) { p49s = Serial.parseInt();}
+      if (pmode == 50) { p50s = Serial.parseInt();} 
+      if (pmode == 51) { p51s = Serial.parseInt();}
       if (pmode == 52) { pcas = Serial.parseInt();} 
       if (pmode == 53) { pcbs = Serial.parseInt();}
       if (pmode == 54) { pccs = Serial.parseInt();}
@@ -460,9 +461,9 @@ if (prec == 'h'){   //hue
 
    if (prec == 'v'){   //value
       
-      if (pmode == 0) { paav = Serial.parseInt();}
-      if (pmode == 1) { pabv = Serial.parseInt();} 
-      if (pmode == 2) { pacv = Serial.parseInt();}
+      if (pmode == 0) { p00v = Serial.parseInt();}
+      if (pmode == 1) { p01v = Serial.parseInt();} 
+      if (pmode == 2) { p02v = Serial.parseInt();}
       if (pmode == 3) { padv = Serial.parseInt();} 
       if (pmode == 4) { paev = Serial.parseInt();}
       if (pmode == 5) { pafv = Serial.parseInt();} 
@@ -508,10 +509,10 @@ if (prec == 'h'){   //hue
       if (pmode == 45) { pbtv = Serial.parseInt();} 
       if (pmode == 46) { pbuv = Serial.parseInt();} 
       if (pmode == 47) { pbvv = Serial.parseInt();}
-      if (pmode == 48) { pbwv = Serial.parseInt();} 
-      if (pmode == 49) { pbxv = Serial.parseInt();}
-      if (pmode == 50) { pbyv = Serial.parseInt();} 
-      if (pmode == 51) { pbzv = Serial.parseInt();}
+      if (pmode == 48) { p48v = Serial.parseInt();} 
+      if (pmode == 49) { p49v = Serial.parseInt();}
+      if (pmode == 50) { p50v = Serial.parseInt();} 
+      if (pmode == 51) { p51v = Serial.parseInt();}
       if (pmode == 52) { pcav = Serial.parseInt();} 
       if (pmode == 53) { pcbv = Serial.parseInt();}
       if (pmode == 54) { pccv = Serial.parseInt();}
@@ -562,9 +563,9 @@ checkPaintSNES ();
    
  
  switch (pmode) { 
-  case 0: if (paav == 0) { paav = 255; } paa(); break;     
-  case 1: if (pabv == 0) { pabv = 255; } pab (); break; 
-  case 2: if (pacv == 0) { pacv = 255; } pac (); break;
+  case 0: if (p00v == 0) { p00v = 255; } p00(); break;     
+  case 1: if (p01v == 0) { p01v = 255; } p01 (); break; 
+  case 2: if (p02v == 0) { p02v = 255; } p02 (); break;
   case 3: if (padv == 0) { padv = 255; } pad (); break;   
   case 4: if (paev == 0) { paev = 255; } pae (); break; 
   case 5: if (pafv == 0) { pafv = 255; } paf (); break; 
@@ -610,10 +611,10 @@ checkPaintSNES ();
   case 45: if (pbtv == 0) { pbtv = 255; } pbt (); break;
   case 46: if (pbuv == 0) { pbuv = 255; } pbu (); break;
   case 47: if (pbvv == 0) { pbvv = 255; } pbv (); break;
-  case 48: if (pbwv == 0) { pbwv = 255; } pbw (); break;
-  case 49: if (pbxv == 0) { pbxv = 255; } pbx (); break;
-  case 50: if (pbyv == 0) { pbyv = 255; } pby (); break;
-  case 51: if (pbzv == 0) { pbzv = 255; } pbz (); break;
+  case 48: if (p48v == 0) { p48v = 255; } p48 (); break;
+  case 49: if (p49v == 0) { p49v = 255; } p49 (); break;
+  case 50: if (p50v == 0) { p50v = 255; } p50 (); break;
+  case 51: if (p51v == 0) { p51v = 255; } p51 (); break;
   case 52: if (pcav == 0) { pcav = 255; } pca (); break;
   case 53: if (pcbv == 0) { pcbv = 255; } pcb (); break;
   case 54: if (pccv == 0) { pccv = 255; } pcc (); break;
@@ -661,53 +662,53 @@ checkPaintSNES ();
 //Every Pixel has its own loop that when running makes the pixel blink and checks for more inputs. Each led has a variable integers for their HSV.  It also prints the pixel number, its HSV and whether it's dead to the serial.
 
 //Pixel 0
-void paa () {
-   leds[0] = CHSV(paah, paas, 0); //go dark
+void p00 () {
+   leds[0] = CHSV(p00h, p00s, 0); //go dark
    LEDS.show(); 
 waitOne (); checkPaintSNES (); checkpaintserial (); //wait a quarter of second and check for more input
-   leds[0] = CHSV(paah, paas, paav); // (Hue, Saturation, Value) turn back on
+   leds[0] = CHSV(p00h, p00s, p00v); // (Hue, Saturation, Value) turn back on
    LEDS.show(); 
 waitOne (); checkPaintSNES (); checkpaintserial (); //wait a quarter of second and check for more input
 
 unsigned long currentMillisPaintSec = millis();  //print to serial every 2 seconds
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
     Serial.print ("Pixel:"); Serial.println (pmode); 
-    Serial.print ("  Hue:"); Serial.println (paah); 
-    Serial.print ("  Saturation:"); Serial.println (paas);
-    Serial.print ("  Value:"); Serial.println (paav); Serial.println();}
+    Serial.print ("  Hue:"); Serial.println (p00h); 
+    Serial.print ("  Saturation:"); Serial.println (p00s);
+    Serial.print ("  Value:"); Serial.println (p00v); Serial.println();}
 }
 
 //Pixel 1
-void pab () {
-   leds[1] = CHSV(pabh, pabs, 0); 
+void p01 () {
+   leds[1] = CHSV(p01h, p01s, 0); 
    LEDS.show(); 
 waitOne (); checkPaintSNES (); 
-    leds[1] = CHSV(pabh, pabs, pabv); 
+    leds[1] = CHSV(p01h, p01s, p01v); 
     LEDS.show();
 waitOne (); checkPaintSNES ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
     Serial.print ("Pixel:"); Serial.println (pmode); 
-    Serial.print ("  Hue:"); Serial.println (pabh); 
-    Serial.print ("  Saturation:"); Serial.println (pabs);
-    Serial.print ("  Value:"); Serial.println (pabv); Serial.println();}
+    Serial.print ("  Hue:"); Serial.println (p01h); 
+    Serial.print ("  Saturation:"); Serial.println (p01s);
+    Serial.print ("  Value:"); Serial.println (p01v); Serial.println();}
 }
 //Pixel 2
-void pac () {
-   leds[2] = CHSV(pach, pacs, 0); 
+void p02 () {
+   leds[2] = CHSV(p02h, p02s, 0); 
    LEDS.show(); 
 waitOne (); checkPaintSNES (); 
-    leds[2] = CHSV(pach, pacs, pacv); 
+    leds[2] = CHSV(p02h, p02s, p02v); 
     LEDS.show();
 waitOne (); checkPaintSNES ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
     Serial.print ("Pixel:"); Serial.println (pmode); 
-    Serial.print ("  Hue:"); Serial.println (pach); 
-    Serial.print ("  Saturation:"); Serial.println (pacs);
-    Serial.print ("  Value:"); Serial.println (pacv); Serial.println();}
+    Serial.print ("  Hue:"); Serial.println (p02h); 
+    Serial.print ("  Saturation:"); Serial.println (p02s);
+    Serial.print ("  Value:"); Serial.println (p02v); Serial.println();}
 }
 //Pixel 3
 void pad () {
@@ -1421,61 +1422,61 @@ if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previo
 
 }
 //Pixel 48
-void pbw() {
-  leds[48] = CHSV(pbwh, pbws, 0); 
+void p48() {
+  leds[48] = CHSV(p48h, p48s, 0); 
    LEDS.show(); 
 waitOne (); checkPaintSNES (); 
-  leds[48] = CHSV(pbwh, pbws, pbwv); 
+  leds[48] = CHSV(p48h, p48s, p48v); 
     LEDS.show();
 waitOne (); checkPaintSNES (); 
 checkpaintserial ();
 
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("48"); Serial.print ("  Hue:"); Serial.println (pbwh); Serial.print ("  Saturation:"); Serial.println (pbws); Serial.print ("  Value:"); Serial.println (pbwv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("48"); Serial.print ("  Hue:"); Serial.println (p48h); Serial.print ("  Saturation:"); Serial.println (p48s); Serial.print ("  Value:"); Serial.println (p48v); Serial.println();}
 
 }
 //Pixel 49
-void pbx() {
-  leds[49] = CHSV(pbxh, pbxs, 0); 
+void p49() {
+  leds[49] = CHSV(p49h, p49s, 0); 
    LEDS.show(); 
 waitOne (); checkPaintSNES (); 
-  leds[49] = CHSV(pbxh, pbxs, pbxv); 
+  leds[49] = CHSV(p49h, p49s, p49v); 
     LEDS.show();
 waitOne (); checkPaintSNES (); 
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("49"); Serial.print ("  Hue:"); Serial.println (pbxh); Serial.print ("  Saturation:"); Serial.println (pbxs); Serial.print ("  Value:"); Serial.println (pbxv); Serial.println("dead green"); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("49"); Serial.print ("  Hue:"); Serial.println (p49h); Serial.print ("  Saturation:"); Serial.println (p49s); Serial.print ("  Value:"); Serial.println (p49v); Serial.println("dead green"); Serial.println();}
 
 
 }
 //Pixel 50
-void pby() {
-  leds[50] = CHSV(pbyh, pbys, 0); 
+void p50() {
+  leds[50] = CHSV(p50h, p50s, 0); 
    LEDS.show(); 
 waitOne (); checkPaintSNES (); 
-  leds[50] = CHSV(pbyh, pbys, pbyv); 
+  leds[50] = CHSV(p50h, p50s, p50v); 
     LEDS.show();
 waitOne (); checkPaintSNES ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("50"); Serial.print ("  Hue:"); Serial.println (pbyh); Serial.print ("  Saturation:"); Serial.println (pbys); Serial.print ("  Value:"); Serial.println (pbyv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("50"); Serial.print ("  Hue:"); Serial.println (p50h); Serial.print ("  Saturation:"); Serial.println (p50s); Serial.print ("  Value:"); Serial.println (p50v); Serial.println();}
 
 }
 //Pixel 51
-void pbz() {
-  leds[51] = CHSV(pbzh, pbzs, 0); 
+void p51() {
+  leds[51] = CHSV(p51h, p51s, 0); 
    LEDS.show(); 
 waitOne (); checkPaintSNES (); 
-  leds[51] = CHSV(pbzh, pbzs, pbzv); 
+  leds[51] = CHSV(p51h, p51s, p51v); 
     LEDS.show();
 waitOne (); checkPaintSNES ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("51"); Serial.print ("  Hue:"); Serial.println (pbzh); Serial.print ("  Saturation:"); Serial.println (pbzs); Serial.print ("  Value:"); Serial.println (pbzv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("51"); Serial.print ("  Hue:"); Serial.println (p51h); Serial.print ("  Saturation:"); Serial.println (p51s); Serial.print ("  Value:"); Serial.println (p51v); Serial.println();}
 }
 //Pixel 52
 void pca() {
@@ -2087,9 +2088,9 @@ if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previo
 }
 
  void showPicture () { //when returning to paint mode I needed a way to bring up the picture again. This displays the leds you've changed (painted with). Leds you haven't used have a Value of 1 and can't be seen. 
-leds[0] = CHSV(paah, paas, paav); 
-leds[1] = CHSV(pabh, pabs, pabv); 
-leds[2] = CHSV(pach, pacs, pacv); 
+leds[0] = CHSV(p00h, p00s, p00v); 
+leds[1] = CHSV(p01h, p01s, p01v); 
+leds[2] = CHSV(p02h, p02s, p02v); 
 leds[3] = CHSV(padh, pads, padv);   
 leds[4] = CHSV(paeh, paes, paev); 
 leds[5] = CHSV(pafh, pafs, pafv);  
@@ -2135,10 +2136,10 @@ leds[44] = CHSV(pbsh, pbss, pbsv);
 leds[45] = CHSV(pbth, pbts, pbtv); 
 leds[46] = CHSV(pbuh, pbus, pbuv); 
 leds[47] = CHSV(pbvh, pbvs, pbvv);  
-leds[48] = CHSV(pbwh, pbws, pbwv); 
-leds[49] = CHSV(pbxh, pbxs, pbxv); 
-leds[50] = CHSV(pbyh, pbys, pbyv); 
-leds[51] = CHSV(pbzh, pbzs, pbzv); 
+leds[48] = CHSV(p48h, p48s, p48v); 
+leds[49] = CHSV(p49h, p49s, p49v); 
+leds[50] = CHSV(p50h, p50s, p50v); 
+leds[51] = CHSV(p51h, p51s, p51v); 
 leds[52] = CHSV(pcah, pcas, pcav); 
 leds[53] = CHSV(pcbh, pcbs, pcbv); 
 leds[54] = CHSV(pcch, pccs, pccv); 
@@ -2184,9 +2185,9 @@ leds[89] = CHSV(pdlh, pdls, pdlv);
 void printPaint () { 
   //hues
   Serial.println("Hues");
-Serial.println(paah);
-Serial.println(pabh);
-Serial.println(pach);
+Serial.println(p00h);
+Serial.println(p01h);
+Serial.println(p02h);
 Serial.println(padh);
 Serial.println(paeh);
 Serial.println(pafh);
@@ -2232,10 +2233,10 @@ Serial.println(pbsh);
 Serial.println(pbth);
 Serial.println(pbuh);
 Serial.println(pbvh);
-Serial.println(pbwh);
-Serial.println(pbxh);
-Serial.println(pbyh);
-Serial.println(pbzh);
+Serial.println(p48h);
+Serial.println(p49h);
+Serial.println(p50h);
+Serial.println(p51h);
 Serial.println(pcah);
 Serial.println(pcbh);
 Serial.println(pcch);
@@ -2277,9 +2278,9 @@ Serial.println(pdlh);
 
 //Saturations
 Serial.println("Saturations");
-Serial.println(paas);
-Serial.println(pabs);
-Serial.println(pacs);
+Serial.println(p00s);
+Serial.println(p01s);
+Serial.println(p02s);
 Serial.println(pads);
 Serial.println(paes);
 Serial.println(pafs);
@@ -2325,10 +2326,10 @@ Serial.println(pbss);
 Serial.println(pbts);
 Serial.println(pbus);
 Serial.println(pbvs);
-Serial.println(pbws);
-Serial.println(pbxs);
-Serial.println(pbys);
-Serial.println(pbzs);
+Serial.println(p48s);
+Serial.println(p49s);
+Serial.println(p50s);
+Serial.println(p51s);
 Serial.println(pcas);
 Serial.println(pcbs);
 Serial.println(pccs);
@@ -2370,9 +2371,9 @@ Serial.println(pdls);
 
 //Values
 Serial.println("values");
-Serial.println(paav);
-Serial.println(pabv);
-Serial.println(pacv);
+Serial.println(p00v);
+Serial.println(p01v);
+Serial.println(p02v);
 Serial.println(padv);
 Serial.println(paev);
 Serial.println(pafv);
@@ -2418,10 +2419,10 @@ Serial.println(pbsv);
 Serial.println(pbtv);
 Serial.println(pbuv);
 Serial.println(pbvv);
-Serial.println(pbwv);
-Serial.println(pbxv);
-Serial.println(pbyv);
-Serial.println(pbzv);
+Serial.println(p48v);
+Serial.println(p49v);
+Serial.println(p50v);
+Serial.println(p51v);
 Serial.println(pcav);
 Serial.println(pcbv);
 Serial.println(pccv);
@@ -2461,3 +2462,99 @@ Serial.println(pdjv);
 Serial.println(pdkv);
 Serial.println(pdlv);
 }
+
+void grabPixelNos () { //for saving the active pixels so you can use them in arrays later when writing patterns
+Serial.println ("Active Pixels are:");
+if (p00v >1) { Serial.println("0"); }
+if (p01v >1) { Serial.println("1"); }
+if (p02v >1) { Serial.println("2"); }
+if (padv >1) { Serial.println("3"); }
+if (paev >1) { Serial.println("4"); }
+if (pafv >1) { Serial.println("5"); }
+if (pagv >1) { Serial.println("6"); }
+if (pahv >1) { Serial.println("7"); }
+if (paiv >1) { Serial.println("8"); }
+if (pajv >1) { Serial.println("9"); }
+if (pakv >1) { Serial.println("10"); }
+if (palv >1) { Serial.println("11"); }
+if (pamv >1) { Serial.println("12"); }
+if (panv >1) { Serial.println("13"); }
+if (paov >1) { Serial.println("14"); }
+if (papv >1) { Serial.println("15"); }
+if (paqv >1) { Serial.println("16"); }
+if (parv >1) { Serial.println("17"); }
+if (pasv >1) { Serial.println("18"); }
+if (patv >1) { Serial.println("19"); }
+if (pauv >1) { Serial.println("20"); }
+if (pavv >1) { Serial.println("21"); }
+if (pawv >1) { Serial.println("22"); }
+if (paxv >1) { Serial.println("23"); }
+if (payv >1) { Serial.println("24"); }
+if (pazv >1) { Serial.println("25"); }
+if (pbav >1) { Serial.println("26"); }
+if (pbbv >1) { Serial.println("27"); }
+if (pbcv >1) { Serial.println("28"); }
+if (pbdv >1) { Serial.println("29"); }
+if (pbev >1) { Serial.println("30"); }
+if (pbfv >1) { Serial.println("31"); }
+if (pbgv >1) { Serial.println("32"); }
+if (pbhv >1) { Serial.println("33"); }
+if (pbiv >1) { Serial.println("34"); }
+if (pbjv >1) { Serial.println("35"); }
+if (pbkv >1) { Serial.println("36"); }
+if (pblv >1) { Serial.println("37"); }
+if (pbmv >1) { Serial.println("38"); }
+if (pbnv >1) { Serial.println("39"); }
+if (pbov >1) { Serial.println("40"); }
+if (pbpv >1) { Serial.println("41"); }
+if (pbqv >1) { Serial.println("42"); }
+if (pbrv >1) { Serial.println("43"); }
+if (pbsv >1) { Serial.println("44"); }
+if (pbtv >1) { Serial.println("45"); }
+if (pbuv >1) { Serial.println("46"); }
+if (pbvv >1) { Serial.println("47"); }
+if (p48v >1) { Serial.println("48"); }
+if (p49v >1) { Serial.println("49"); }
+if (p50v >1) { Serial.println("50"); }
+if (p51v >1) { Serial.println("51"); }
+if (pcav >1) { Serial.println("52"); }
+if (pcbv >1) { Serial.println("53"); }
+if (pccv >1) { Serial.println("54"); }
+if (pcdv >1) { Serial.println("55"); }
+if (pcev >1) { Serial.println("56"); }
+if (pcfv >1) { Serial.println("57"); }
+if (pcgv >1) { Serial.println("58"); }
+if (pchv >1) { Serial.println("59"); }
+if (pciv >1) { Serial.println("60"); }
+if (pcjv >1) { Serial.println("61"); }
+if (pckv >1) { Serial.println("62"); }
+if (pclv >1) { Serial.println("63"); }
+if (pcmv >1) { Serial.println("64"); }
+if (pcnv >1) { Serial.println("65"); }
+if (pcov >1) { Serial.println("66"); }
+if (pcpv >1) { Serial.println("67"); }
+if (pcqv >1) { Serial.println("68"); }
+if (pcrv >1) { Serial.println("69"); }
+if (pcsv >1) { Serial.println("70"); }
+if (pctv >1) { Serial.println("71"); }
+if (pcuv >1) { Serial.println("72"); }
+if (pcvv >1) { Serial.println("73"); }
+if (pcwv >1) { Serial.println("74"); }
+if (pcxv >1) { Serial.println("75"); }
+if (pcyv >1) { Serial.println("76"); }
+if (pczv >1) { Serial.println("77"); }
+if (pdav >1) { Serial.println("78"); }
+if (pdbv >1) { Serial.println("79"); }
+if (pdcv >1) { Serial.println("80"); }
+if (pddv >1) { Serial.println("81"); }
+if (pdev >1) { Serial.println("82"); }
+if (pdfv >1) { Serial.println("83"); }
+if (pdgv >1) { Serial.println("84"); }
+if (pdhv >1) { Serial.println("85"); }
+if (pdiv >1) { Serial.println("86"); }
+if (pdjv >1) { Serial.println("87"); }
+if (pdkv >1) { Serial.println("88"); }
+if (pdlv >1) { Serial.println("89"); }
+
+}
+

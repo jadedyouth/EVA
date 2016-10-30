@@ -4,7 +4,7 @@ void checkPaintSNES (){
 if (mode != 100) {
 btns = Spad.getButtons(false);
 
-if(!(btns & BTN_START)) { mode = 0;}
+if(!(btns & BTN_START)) { mode = 0; clearsheet ();}
 if(!(btns & BTN_SELECT)) { mode = 100;}
 
 if(!(btns & BTN_UP)) { //up
@@ -258,9 +258,9 @@ if(!(btns & (BTN_L | BTN_R))) {  pmode = 48; waitThree();} //centre cursor
 
  if(!(btns & (BTN_B | BTN_A))){
 
-      if (pmode == 0) { if (paav == 1) { paav = 255;} else paav = 1;}
-      if (pmode == 1) { if (pabv == 1) { pabv = 255;} else pabv = 1;} 
-      if (pmode == 2) { if (pacv == 1) { pacv = 255;} else pacv = 1;}
+      if (pmode == 0) { if (p00v == 1) { p00v = 255;} else p00v = 1;}
+      if (pmode == 1) { if (p01v == 1) { p01v = 255;} else p01v = 1;} 
+      if (pmode == 2) { if (p02v == 1) { p02v = 255;} else p02v = 1;}
       if (pmode == 3) { if (padv == 1) { padv = 255;} else padv = 1;} 
       if (pmode == 4) { if (paev == 1) { paev = 255;} else paev = 1;}
       if (pmode == 5) { if (pafv == 1) { pafv = 255;} else pafv = 1;} 
@@ -306,10 +306,10 @@ if(!(btns & (BTN_L | BTN_R))) {  pmode = 48; waitThree();} //centre cursor
       if (pmode == 45) { if (pbtv == 1) { pbtv = 255;} else pbtv = 1;} 
       if (pmode == 46) { if (pbuv == 1) { pbuv = 255;} else pbuv = 1;} 
       if (pmode == 47) { if (pbvv == 1) { pbvv = 255;} else pbvv = 1;} 
-      if (pmode == 48) { if (pbwv == 1) { pbwv = 255;} else pbwv = 1;} 
-      if (pmode == 49) { if (pbxv == 1) { pbxv = 255;} else pbxv = 1;} 
-      if (pmode == 50) { if (pbyv == 1) { pbyv = 255;} else pbyv = 1;}  
-      if (pmode == 51) { if (pbzv == 1) { pbzv = 255;} else pbzv = 1;}  
+      if (pmode == 48) { if (p48v == 1) { p48v = 255;} else p48v = 1;} 
+      if (pmode == 49) { if (p49v == 1) { p49v = 255;} else p49v = 1;} 
+      if (pmode == 50) { if (p50v == 1) { p50v = 255;} else p50v = 1;}  
+      if (pmode == 51) { if (p51v == 1) { p51v = 255;} else p51v = 1;}  
       if (pmode == 52) { if (pcav == 1) { pcav = 255;} else pcav = 1;}
       if (pmode == 53) { if (pcbv == 1) { pcbv = 255;} else pcbv = 1;}
       if (pmode == 54) { if (pccv == 1) { pccv = 255;} else pcvv = 1;}
@@ -354,9 +354,9 @@ if(!(btns & (BTN_L | BTN_R))) {  pmode = 48; waitThree();} //centre cursor
 
 //hue up there's no upper or lower limit on hue but i don't really care
 if(!(btns & BTN_A)){
-     if (pmode == 0) { paah = paah +5;}
-      if (pmode == 1) { pabh = pabh +5;} 
-      if (pmode == 2) { pach = pach +5;}
+     if (pmode == 0) { p00h = p00h +5;}
+      if (pmode == 1) { p01h = p01h +5;} 
+      if (pmode == 2) { p02h = p02h +5;}
       if (pmode == 3) { padh = padh +5;} 
       if (pmode == 4) { paeh = paeh +5;}
       if (pmode == 5) { pafh = pafh +5;} 
@@ -402,10 +402,10 @@ if(!(btns & BTN_A)){
       if (pmode == 45) { pbth = pbth+5;} 
       if (pmode == 46) { pbuh = pbuh+5;} 
       if (pmode == 47) { pbvh = pbvh+5;}
-      if (pmode == 48) { pbwh = pbwh +5;} 
-      if (pmode == 49) { pbxh = pbxh+5;}
-      if (pmode == 50) { pbyh = pbyh+5;} 
-      if (pmode == 51) { pbzh = pbzh+5;}
+      if (pmode == 48) { p48h = p48h +5;} 
+      if (pmode == 49) { p49h = p49h+5;}
+      if (pmode == 50) { p50h = p50h+5;} 
+      if (pmode == 51) { p51h = p51h+5;}
       if (pmode == 52) { pcah = pcah+5;} 
       if (pmode == 53) { pcbh = pcbh+5;}
       if (pmode == 54) { pcch = pcch+5;}
@@ -448,9 +448,9 @@ if(!(btns & BTN_A)){
 
 //hue down
 if(!(btns & BTN_B)){
-     if (pmode == 0) { paah = paah -5;}
-      if (pmode == 1) { pabh = pabh -5;} 
-      if (pmode == 2) { pach = pach -5;}
+     if (pmode == 0) { p00h = p00h -5;}
+      if (pmode == 1) { p01h = p01h -5;} 
+      if (pmode == 2) { p02h = p02h -5;}
       if (pmode == 3) { padh = padh -5;} 
       if (pmode == 4) { paeh = paeh -5;}
       if (pmode == 5) { pafh = pafh -5;} 
@@ -496,10 +496,10 @@ if(!(btns & BTN_B)){
       if (pmode == 45) { pbth = pbth-5;} 
       if (pmode == 46) { pbuh = pbuh-5;} 
       if (pmode == 47) { pbvh = pbvh-5;}
-      if (pmode == 48) { pbwh = pbwh-5;} 
-      if (pmode == 49) { pbxh = pbxh-5;}
-      if (pmode == 50) { pbyh = pbyh-5;} 
-      if (pmode == 51) { pbzh = pbzh-5;}
+      if (pmode == 48) { p48h = p48h-5;} 
+      if (pmode == 49) { p49h = p49h-5;}
+      if (pmode == 50) { p50h = p50h-5;} 
+      if (pmode == 51) { p51h = p51h-5;}
       if (pmode == 52) { pcah = pcah-5;} 
       if (pmode == 53) { pcbh = pcbh-5;}
       if (pmode == 54) { pcch = pcch-5;}
@@ -543,9 +543,9 @@ if(!(btns & BTN_B)){
 }
 //value (brightness) up 
 if(!(btns & BTN_R)){
-     if (pmode == 0) { paav = paav +5;}
-      if (pmode == 1) { pabv = pabv +5;} 
-      if (pmode == 2) { pacv = pacv +5;}
+     if (pmode == 0) { p00v = p00v +5;}
+      if (pmode == 1) { p01v = p01v +5;} 
+      if (pmode == 2) { p02v = p02v +5;}
       if (pmode == 3) { padv = padv +5;} 
       if (pmode == 4) { paev = paev +5;}
       if (pmode == 5) { pafv = pafv +5;} 
@@ -591,10 +591,10 @@ if(!(btns & BTN_R)){
       if (pmode == 45) { pbtv = pbtv+5;} 
       if (pmode == 46) { pbuv = pbuv+5;} 
       if (pmode == 47) { pbvv = pbvv+5;}
-      if (pmode == 48) { pbwv = pbwv +5;} 
-      if (pmode == 49) { pbxv = pbxv+5;}
-      if (pmode == 50) { pbyv = pbyv+5;} 
-      if (pmode == 51) { pbzv = pbzv+5;}
+      if (pmode == 48) { p48v = p48v +5;} 
+      if (pmode == 49) { p49v = p49v+5;}
+      if (pmode == 50) { p50v = p50v+5;} 
+      if (pmode == 51) { p51v = p51v+5;}
       if (pmode == 52) { pcav = pcav+5;} 
       if (pmode == 53) { pcbv = pcbv+5;}
       if (pmode == 54) { pccv = pccv+5;}
@@ -636,9 +636,9 @@ if(!(btns & BTN_R)){
 }
 //value (brightness) down there probably should be a lower limit on this so it doesn't dip to exactly 0 and fuck with the rest of the code. NOTE: FIX THIS TEDIOUS SHIT LATER
 if(!(btns & BTN_L)){
-     if (pmode == 0) { paav = paav -5;}
-      if (pmode == 1) { pabv = pabv -5;} 
-      if (pmode == 2) { pacv = pacv -5;}
+     if (pmode == 0) { p00v = p00v -5;}
+      if (pmode == 1) { p01v = p01v -5;} 
+      if (pmode == 2) { p02v = p02v -5;}
       if (pmode == 3) { padv = padv -5;} 
       if (pmode == 4) { paev = paev -5;}
       if (pmode == 5) { pafv = pafv -5;} 
@@ -684,10 +684,10 @@ if(!(btns & BTN_L)){
       if (pmode == 45) { pbtv = pbtv-5;} 
       if (pmode == 46) { pbuv = pbuv-5;} 
       if (pmode == 47) { pbvv = pbvv-5;}
-      if (pmode == 48) { pbwv = pbwv -5;} 
-      if (pmode == 49) { pbxv = pbxv-5;}
-      if (pmode == 50) { pbyv = pbyv-5;} 
-      if (pmode == 51) { pbzv = pbzv-5;}
+      if (pmode == 48) { p48v = p48v -5;} 
+      if (pmode == 49) { p49v = p49v-5;}
+      if (pmode == 50) { p50v = p50v-5;} 
+      if (pmode == 51) { p51v = p51v-5;}
       if (pmode == 52) { pcav = pcav-5;} 
       if (pmode == 53) { pcbv = pcbv-5;}
       if (pmode == 54) { pccv = pccv-5;}
@@ -730,9 +730,9 @@ if(!(btns & BTN_L)){
 
 //Saturation up. this is what an upper limit looks like. this was done cause improperly pushing a combination of buttons was accidentally taking saturation to 256, which is 0, which is drastically different and annoying.
 if(!(btns & BTN_X)){
-      if (pmode == 0) { paas = paas+5; if (paas > 255) {paas = 255;}}
-      if (pmode == 1) { pabs = pabs+5; if (pabs > 255) {pabs = 255;}} 
-      if (pmode == 2) { pacs = pacs+5; if (pacs > 255) {pacs = 255;}}
+      if (pmode == 0) { p00s = p00s+5; if (p00s > 255) {p00s = 255;}}
+      if (pmode == 1) { p01s = p01s+5; if (p01s > 255) {p01s = 255;}} 
+      if (pmode == 2) { p02s = p02s+5; if (p02s > 255) {p02s = 255;}}
       if (pmode == 3) { pads = pads+5; if (pads > 255) {pads = 255;}} 
       if (pmode == 4) { paes = paes+5; if (paes > 255) {paes = 255;}}
       if (pmode == 5) { pafs = pafs+5; if (pafs > 255) {pafs = 255;}} 
@@ -778,10 +778,10 @@ if(!(btns & BTN_X)){
       if (pmode == 45) { pbts = pbts+5; if (pbts > 255) {pbts = 255;}} 
       if (pmode == 46) { pbus = pbus+5; if (pbus > 255) {pbus = 255;}} 
       if (pmode == 47) { pbvs = pbvs+5; if (pbvs > 255) {pbvs = 255;}}
-      if (pmode == 48) { pbws = pbws+5; if (pbws > 255) {pbws = 255;}} 
-      if (pmode == 49) { pbxs = pbxs+5; if (pbxs > 255) {pbxs = 255;}}
-      if (pmode == 50) { pbys = pbys+5; if (pbys > 255) {pbys = 255;}} 
-      if (pmode == 51) { pbzs = pbzs+5; if (pbzs > 255) {pbzs = 255;}}
+      if (pmode == 48) { p48s = p48s+5; if (p48s > 255) {p48s = 255;}} 
+      if (pmode == 49) { p49s = p49s+5; if (p49s > 255) {p49s = 255;}}
+      if (pmode == 50) { p50s = p50s+5; if (p50s > 255) {p50s = 255;}} 
+      if (pmode == 51) { p51s = p51s+5; if (p51s > 255) {p51s = 255;}}
       if (pmode == 52) { pcas = pcas+5; if (pcas > 255) {pcas = 255;}} 
       if (pmode == 53) { pcbs = pcbs+5; if (pcbs > 255) {pcbs = 255;}}
       if (pmode == 54) { pccs = pccs+5; if (pccs > 255) {pccs = 255;}}
@@ -824,9 +824,9 @@ if(!(btns & BTN_X)){
 
 //Saturation Down
 if(!(btns & BTN_Y)){
-     if (pmode == 0) { paas = paas-5;}
-      if (pmode == 1) { pabs = pabs-5;} 
-      if (pmode == 2) { pacs = pacs-5;}
+     if (pmode == 0) { p00s = p00s-5;}
+      if (pmode == 1) { p01s = p01s-5;} 
+      if (pmode == 2) { p02s = p02s-5;}
       if (pmode == 3) { pads = pads-5;} 
       if (pmode == 4) { paes = paes-5;}
       if (pmode == 5) { pafs = pafs-5;} 
@@ -872,10 +872,10 @@ if(!(btns & BTN_Y)){
       if (pmode == 45) { pbts = pbts-5;} 
       if (pmode == 46) { pbus = pbus-5;} 
       if (pmode == 47) { pbvs = pbvs-5;}
-      if (pmode == 48) { pbws = pbws-5;} 
-      if (pmode == 49) { pbxs = pbxs-5;}
-      if (pmode == 50) { pbys = pbys-5;} 
-      if (pmode == 51) { pbzs = pbzs-5;}
+      if (pmode == 48) { p48s = p48s-5;} 
+      if (pmode == 49) { p49s = p49s-5;}
+      if (pmode == 50) { p50s = p50s-5;} 
+      if (pmode == 51) { p51s = p51s-5;}
       if (pmode == 52) { pcas = pcas-5;} 
       if (pmode == 53) { pcbs = pcbs-5;}
       if (pmode == 54) { pccs = pccs-5;}
@@ -923,9 +923,9 @@ if(!(btns & BTN_Y)){
 if(!(btns & (BTN_X | BTN_A))){
 
 
-       if (pmode == 0) { brushv = paav;  }
-      if (pmode == 1) { brushv  = pabv;   } 
-      if (pmode == 2) { brushv  = pacv;   }
+       if (pmode == 0) { brushv = p00v;  }
+      if (pmode == 1) { brushv  = p01v;   } 
+      if (pmode == 2) { brushv  = p02v;   }
       if (pmode == 3) { brushv  = padv;   } 
       if (pmode == 4) { brushv  = paev;   }
       if (pmode == 5) { brushv  = pafv;   } 
@@ -971,10 +971,10 @@ if(!(btns & (BTN_X | BTN_A))){
       if (pmode == 45) { brushv  = pbtv;  } 
       if (pmode == 46) { brushv = pbuv;  } 
       if (pmode == 47) { brushv  = pbvv;  }
-      if (pmode == 48) { brushv = pbwv;  } 
-      if (pmode == 49) { brushv = pbxv;  }
-      if (pmode == 50) { brushv  = pbyv;  } 
-      if (pmode == 51) { brushv = pbzv;  }
+      if (pmode == 48) { brushv = p48v;  } 
+      if (pmode == 49) { brushv = p49v;  }
+      if (pmode == 50) { brushv  = p50v;  } 
+      if (pmode == 51) { brushv = p51v;  }
       if (pmode == 52) { brushv  = pcav;  } 
       if (pmode == 53) { brushv  = pcbv;  }
       if (pmode == 54) { brushv  = pccv;  }
@@ -1016,9 +1016,9 @@ if(!(btns & (BTN_X | BTN_A))){
 
 
 
-       if (pmode == 0) { brushs = paas;  }
-      if (pmode == 1) { brushs  = pabs;   } 
-      if (pmode == 2) { brushs  = pacs;   }
+       if (pmode == 0) { brushs = p00s;  }
+      if (pmode == 1) { brushs  = p01s;   } 
+      if (pmode == 2) { brushs  = p02s;   }
       if (pmode == 3) { brushs  = pads;   } 
       if (pmode == 4) { brushs  = paes;   }
       if (pmode == 5) { brushs  = pafs;   } 
@@ -1064,10 +1064,10 @@ if(!(btns & (BTN_X | BTN_A))){
       if (pmode == 45) { brushs  = pbts;  } 
       if (pmode == 46) { brushs = pbus;  } 
       if (pmode == 47) { brushs  = pbvs;  }
-      if (pmode == 48) { brushs = pbws;  } 
-      if (pmode == 49) { brushs = pbxs;  }
-      if (pmode == 50) { brushs  = pbys;  } 
-      if (pmode == 51) { brushs = pbzs;  }
+      if (pmode == 48) { brushs = p48s;  } 
+      if (pmode == 49) { brushs = p49s;  }
+      if (pmode == 50) { brushs  = p50s;  } 
+      if (pmode == 51) { brushs = p51s;  }
       if (pmode == 52) { brushs  = pcas;  } 
       if (pmode == 53) { brushs  = pcbs;  }
       if (pmode == 54) { brushs  = pccs;  }
@@ -1108,9 +1108,9 @@ if(!(btns & (BTN_X | BTN_A))){
       if (pmode == 89) { brushs  = pdls;  }
 
   
-      if (pmode == 0) { brush = paah; waitTwo(); }
-      if (pmode == 1) { brush  = pabh;  waitTwo(); } 
-      if (pmode == 2) { brush  = pach;  waitTwo(); }
+      if (pmode == 0) { brush = p00h; waitTwo(); }
+      if (pmode == 1) { brush  = p01h;  waitTwo(); } 
+      if (pmode == 2) { brush  = p02h;  waitTwo(); }
       if (pmode == 3) { brush  = padh;  waitTwo(); } 
       if (pmode == 4) { brush  = paeh;  waitTwo(); }
       if (pmode == 5) { brush  = pafh;  waitTwo(); } 
@@ -1156,10 +1156,10 @@ if(!(btns & (BTN_X | BTN_A))){
       if (pmode == 45) { brush  = pbth; waitTwo(); } 
       if (pmode == 46) { brush = pbuh; waitTwo(); } 
       if (pmode == 47) { brush  = pbvh; waitTwo(); }
-      if (pmode == 48) { brush = pbwh; waitTwo(); } 
-      if (pmode == 49) { brush = pbxh; waitTwo(); }
-      if (pmode == 50) { brush  = pbyh; waitTwo(); } 
-      if (pmode == 51) { brush = pbzh; waitTwo(); }
+      if (pmode == 48) { brush = p48h; waitTwo(); } 
+      if (pmode == 49) { brush = p49h; waitTwo(); }
+      if (pmode == 50) { brush  = p50h; waitTwo(); } 
+      if (pmode == 51) { brush = p51h; waitTwo(); }
       if (pmode == 52) { brush  = pcah; waitTwo(); } 
       if (pmode == 53) { brush  = pcbh; waitTwo(); }
       if (pmode == 54) { brush  = pcch; waitTwo(); }
@@ -1204,10 +1204,10 @@ if(!(btns & (BTN_X | BTN_A))){
 //brush Paste
 if(!(btns & (BTN_B | BTN_Y))){
 
-//if (pmode == 48) { pbws = brushs;} /////////////
-      if (pmode == 0) { paav = brushv;} 
-      if (pmode == 1) { pabv = brushv;} 
-      if (pmode == 2) { pacv = brushv;} 
+//if (pmode == 48) { p48s = brushs;} /////////////
+      if (pmode == 0) { p00v = brushv;} 
+      if (pmode == 1) { p01v = brushv;} 
+      if (pmode == 2) { p02v = brushv;} 
       if (pmode == 3) { padv = brushv;} 
       if (pmode == 4) { paev = brushv;} 
       if (pmode == 5) { pafv = brushv;} 
@@ -1253,10 +1253,10 @@ if(!(btns & (BTN_B | BTN_Y))){
       if (pmode == 45) { pbtv = brushv;} 
       if (pmode == 46) { pbuv = brushv;} 
       if (pmode == 47) { pbvv = brushv;}
-      if (pmode == 48) { pbwv = brushv;} 
-      if (pmode == 49) { pbxv = brushv;}
-      if (pmode == 50) { pbyv = brushv;} 
-      if (pmode == 51) { pbzv = brushv;} 
+      if (pmode == 48) { p48v = brushv;} 
+      if (pmode == 49) { p49v = brushv;}
+      if (pmode == 50) { p50v = brushv;} 
+      if (pmode == 51) { p51v = brushv;} 
       if (pmode == 52) { pcav = brushv;} 
       if (pmode == 53) { pcbv = brushv;} 
       if (pmode == 54) { pccv = brushv;} 
@@ -1297,9 +1297,9 @@ if(!(btns & (BTN_B | BTN_Y))){
       if (pmode == 89) { pdlv = brushv;} 
 
 
-      if (pmode == 0) { paas = brushs;} 
-      if (pmode == 1) { pabs = brushs;} 
-      if (pmode == 2) { pacs = brushs;} 
+      if (pmode == 0) { p00s = brushs;} 
+      if (pmode == 1) { p01s = brushs;} 
+      if (pmode == 2) { p02s = brushs;} 
       if (pmode == 3) { pads = brushs;} 
       if (pmode == 4) { paes = brushs;} 
       if (pmode == 5) { pafs = brushs;} 
@@ -1345,10 +1345,10 @@ if(!(btns & (BTN_B | BTN_Y))){
       if (pmode == 45) { pbts = brushs;} 
       if (pmode == 46) { pbus = brushs;} 
       if (pmode == 47) { pbvs = brushs;}
-      if (pmode == 48) { pbws = brushs;} 
-      if (pmode == 49) { pbxs = brushs;}
-      if (pmode == 50) { pbys = brushs;} 
-      if (pmode == 51) { pbzs = brushs;} 
+      if (pmode == 48) { p48s = brushs;} 
+      if (pmode == 49) { p49s = brushs;}
+      if (pmode == 50) { p50s = brushs;} 
+      if (pmode == 51) { p51s = brushs;} 
       if (pmode == 52) { pcas = brushs;} 
       if (pmode == 53) { pcbs = brushs;} 
       if (pmode == 54) { pccs = brushs;} 
@@ -1389,9 +1389,9 @@ if(!(btns & (BTN_B | BTN_Y))){
       if (pmode == 89) { pdls = brushs;} 
 
   
-     if (pmode == 0) { paah = brush;} 
-      if (pmode == 1) { pabh = brush;} 
-      if (pmode == 2) { pach = brush;} 
+     if (pmode == 0) { p00h = brush;} 
+      if (pmode == 1) { p01h = brush;} 
+      if (pmode == 2) { p02h = brush;} 
       if (pmode == 3) { padh = brush;} 
       if (pmode == 4) { paeh = brush;} 
       if (pmode == 5) { pafh = brush;} 
@@ -1437,10 +1437,10 @@ if(!(btns & (BTN_B | BTN_Y))){
       if (pmode == 45) { pbth = brush;} 
       if (pmode == 46) { pbuh = brush;} 
       if (pmode == 47) { pbvh = brush;}
-      if (pmode == 48) { pbwh = brush;} 
-      if (pmode == 49) { pbxh = brush;}
-      if (pmode == 50) { pbyh = brush;} 
-      if (pmode == 51) { pbzh = brush;} 
+      if (pmode == 48) { p48h = brush;} 
+      if (pmode == 49) { p49h = brush;}
+      if (pmode == 50) { p50h = brush;} 
+      if (pmode == 51) { p51h = brush;} 
       if (pmode == 52) { pcah = brush;} 
       if (pmode == 53) { pcbh = brush;} 
       if (pmode == 54) { pcch = brush;} 
@@ -1487,9 +1487,9 @@ if(!(btns & (BTN_B | BTN_Y))){
 //that nice cyan you just found, don't use this except at the start. PS I have no undo function yet.
 if(!(btns & (BTN_Y | BTN_A))){ //set defauly hue to current pixel colour
            
-      if (pmode == 0) { defaultHue = paah; waitTwo(); }
-      if (pmode == 1) { defaultHue  = pabh;  waitTwo(); } 
-      if (pmode == 2) { defaultHue  = pach;  waitTwo(); }
+      if (pmode == 0) { defaultHue = p00h; waitTwo(); }
+      if (pmode == 1) { defaultHue  = p01h;  waitTwo(); } 
+      if (pmode == 2) { defaultHue  = p02h;  waitTwo(); }
       if (pmode == 3) { defaultHue  = padh;  waitTwo(); } 
       if (pmode == 4) { defaultHue  = paeh;  waitTwo(); }
       if (pmode == 5) { defaultHue  = pafh;  waitTwo(); } 
@@ -1535,10 +1535,10 @@ if(!(btns & (BTN_Y | BTN_A))){ //set defauly hue to current pixel colour
       if (pmode == 45) { defaultHue  = pbth; waitTwo(); } 
       if (pmode == 46) { defaultHue = pbuh; waitTwo(); } 
       if (pmode == 47) { defaultHue  = pbvh; waitTwo(); }
-      if (pmode == 48) { defaultHue = pbwh; waitTwo(); } 
-      if (pmode == 49) { defaultHue = pbxh; waitTwo(); }
-      if (pmode == 50) { defaultHue  = pbyh; waitTwo(); } 
-      if (pmode == 51) { defaultHue = pbzh; waitTwo(); }
+      if (pmode == 48) { defaultHue = p48h; waitTwo(); } 
+      if (pmode == 49) { defaultHue = p49h; waitTwo(); }
+      if (pmode == 50) { defaultHue  = p50h; waitTwo(); } 
+      if (pmode == 51) { defaultHue = p51h; waitTwo(); }
       if (pmode == 52) { defaultHue  = pcah; waitTwo(); } 
       if (pmode == 53) { defaultHue  = pcbh; waitTwo(); }
       if (pmode == 54) { defaultHue  = pcch; waitTwo(); }
@@ -1581,9 +1581,9 @@ if(!(btns & (BTN_Y | BTN_A))){ //set defauly hue to current pixel colour
       
       Serial.print("All Pixels This Hue:");  Serial.println (defaultHue); Serial.println ();
 
- paah = defaultHue; //0
- pabh = defaultHue; //1
- pach = defaultHue; //2
+ p00h = defaultHue; //0
+ p01h = defaultHue; //1
+ p02h = defaultHue; //2
  padh = defaultHue; //3
  paeh = defaultHue; //4
  pafh = defaultHue; //5
@@ -1629,10 +1629,10 @@ if(!(btns & (BTN_Y | BTN_A))){ //set defauly hue to current pixel colour
  pbth = defaultHue; 
  pbuh = defaultHue;
  pbvh = defaultHue;
- pbwh = defaultHue;
- pbxh = defaultHue;
- pbyh = defaultHue;
- pbzh = defaultHue;
+ p48h = defaultHue;
+ p49h = defaultHue;
+ p50h = defaultHue;
+ p51h = defaultHue;
  pcah = defaultHue;
  pcbh = defaultHue;
  pcch = defaultHue;

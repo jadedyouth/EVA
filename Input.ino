@@ -39,7 +39,7 @@ void snesIn () {
     Serial.println("BTN_A + BTN_B"); */
 
   //True if X *AND* Y were pressed together
-  if(!(btns & (BTN_X | BTN_Y))) { }
+  if(!(btns & (BTN_X | BTN_Y))) { } //nothing happens yet
     
 
 
@@ -54,7 +54,7 @@ void snesIn () {
                                                 waitThree();              if (mode > 5) {mode = 5;} //limits the highest mode you can get to
   }}
 
-  // True if Select *AND* up were pressed
+
   if(!(btns & BTN_DOWN)) {
    if( mode <99){
                                                waitThree();                     mode= mode -1; clearsheet ();
@@ -98,7 +98,5 @@ void snesIn () {
     }
   }
   }
-
-
 
 

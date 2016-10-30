@@ -256,9 +256,9 @@ if(!(btns & BTN_RIGHT)) { //Right
 //copy
 if(!(btns & (BTN_X | BTN_A))){
 
-      if (ppmode == 0) { brushv = ppaav;  }
-      if (ppmode == 1) { brushv  = ppabv;   } 
-      if (ppmode == 2) { brushv  = ppacv;   }
+      if (ppmode == 0) { brushv = pp00v;  }
+      if (ppmode == 1) { brushv  = pp01v;   } 
+      if (ppmode == 2) { brushv  = pp02v;   }
       if (ppmode == 3) { brushv  = ppadv;   } 
       if (ppmode == 4) { brushv  = ppaev;   }
       if (ppmode == 5) { brushv  = ppafv;   } 
@@ -304,10 +304,10 @@ if(!(btns & (BTN_X | BTN_A))){
       if (ppmode == 45) { brushv  = ppbtv;  } 
       if (ppmode == 46) { brushv = ppbuv;  } 
       if (ppmode == 47) { brushv  = ppbvv;  }
-      if (ppmode == 48) { brushv = ppbwv;  } 
-      if (ppmode == 49) { brushv = ppbxv;  }
-      if (ppmode == 50) { brushv  = ppbyv;  } 
-      if (ppmode == 51) { brushv = ppbzv;  }
+      if (ppmode == 48) { brushv = pp48v;  } 
+      if (ppmode == 49) { brushv = pp49v;  }
+      if (ppmode == 50) { brushv  = pp50v;  } 
+      if (ppmode == 51) { brushv = pp51v;  }
       if (ppmode == 52) { brushv  = ppcav;  } 
       if (ppmode == 53) { brushv  = ppcbv;  }
       if (ppmode == 54) { brushv  = ppccv;  }
@@ -349,9 +349,9 @@ if(!(btns & (BTN_X | BTN_A))){
 
 
 
-      if (ppmode == 0) { brushs = ppaas;  }
-      if (ppmode == 1) { brushs  = ppabs;   } 
-      if (ppmode == 2) { brushs  = ppacs;   }
+      if (ppmode == 0) { brushs = pp00s;  }
+      if (ppmode == 1) { brushs  = pp01s;   } 
+      if (ppmode == 2) { brushs  = pp02s;   }
       if (ppmode == 3) { brushs  = ppads;   } 
       if (ppmode == 4) { brushs  = ppaes;   }
       if (ppmode == 5) { brushs  = ppafs;   } 
@@ -397,10 +397,10 @@ if(!(btns & (BTN_X | BTN_A))){
       if (ppmode == 45) { brushs  = ppbts;  } 
       if (ppmode == 46) { brushs = ppbus;  } 
       if (ppmode == 47) { brushs  = ppbvs;  }
-      if (ppmode == 48) { brushs = ppbws;  } 
-      if (ppmode == 49) { brushs = ppbxs;  }
-      if (ppmode == 50) { brushs  = ppbys;  } 
-      if (ppmode == 51) { brushs = ppbzs;  }
+      if (ppmode == 48) { brushs = pp48s;  } 
+      if (ppmode == 49) { brushs = pp49s;  }
+      if (ppmode == 50) { brushs  = pp50s;  } 
+      if (ppmode == 51) { brushs = pp51s;  }
       if (ppmode == 52) { brushs  = ppcas;  } 
       if (ppmode == 53) { brushs  = ppcbs;  }
       if (ppmode == 54) { brushs  = ppccs;  }
@@ -441,9 +441,9 @@ if(!(btns & (BTN_X | BTN_A))){
       if (ppmode == 89) { brushs  = ppdls;  }
 
   
-      if (ppmode == 0) { brush = ppaah; waitTwo(); }
-      if (ppmode == 1) { brush  = ppabh;  waitTwo(); } 
-      if (ppmode == 2) { brush  = ppach;  waitTwo(); }
+      if (ppmode == 0) { brush = pp00h; waitTwo(); }
+      if (ppmode == 1) { brush  = pp01h;  waitTwo(); } 
+      if (ppmode == 2) { brush  = pp02h;  waitTwo(); }
       if (ppmode == 3) { brush  = ppadh;  waitTwo(); } 
       if (ppmode == 4) { brush  = ppaeh;  waitTwo(); }
       if (ppmode == 5) { brush  = ppafh;  waitTwo(); } 
@@ -489,10 +489,10 @@ if(!(btns & (BTN_X | BTN_A))){
       if (ppmode == 45) { brush  = ppbth; waitTwo(); } 
       if (ppmode == 46) { brush = ppbuh; waitTwo(); } 
       if (ppmode == 47) { brush  = ppbvh; waitTwo(); }
-      if (ppmode == 48) { brush = ppbwh; waitTwo(); } 
-      if (ppmode == 49) { brush = ppbxh; waitTwo(); }
-      if (ppmode == 50) { brush  = ppbyh; waitTwo(); } 
-      if (ppmode == 51) { brush = ppbzh; waitTwo(); }
+      if (ppmode == 48) { brush = pp48h; waitTwo(); } 
+      if (ppmode == 49) { brush = pp49h; waitTwo(); }
+      if (ppmode == 50) { brush  = pp50h; waitTwo(); } 
+      if (ppmode == 51) { brush = pp51h; waitTwo(); }
       if (ppmode == 52) { brush  = ppcah; waitTwo(); } 
       if (ppmode == 53) { brush  = ppcbh; waitTwo(); }
       if (ppmode == 54) { brush  = ppcch; waitTwo(); }
@@ -542,9 +542,9 @@ void paletteMode (){
 paletteInput();
 
 switch (ppmode) {
-  case 0:  ppaa(); break;     
-  case 1:  ppab (); break; 
-  case 2:  ppac (); break;
+  case 0:  pp00(); break;     
+  case 1:  pp01 (); break; 
+  case 2:  pp02 (); break;
   case 3:  ppad (); break;   
   case 4:  ppae (); break; 
   case 5:  ppaf (); break; 
@@ -590,10 +590,10 @@ switch (ppmode) {
   case 45: ppbt (); break;
   case 46: ppbu (); break;
   case 47: ppbv (); break;
-  case 48: ppbw (); break;
-  case 49: ppbx (); break;
-  case 50: ppby (); break;
-  case 51: ppbz (); break;
+  case 48: pp48 (); break;
+  case 49: pp49 (); break;
+  case 50: pp50 (); break;
+  case 51: pp51 (); break;
   case 52: ppca (); break;
   case 53: ppcb (); break;
   case 54: ppcc (); break;
@@ -640,53 +640,53 @@ switch (ppmode) {
 }
 
 //Palette pixel 0
-void ppaa () {
-   leds[0] = CHSV(ppaah, ppaas, 0); 
+void pp00 () {
+   leds[0] = CHSV(pp00h, pp00s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-   leds[0] = CHSV(ppaah, ppaas, ppaav); 
+   leds[0] = CHSV(pp00h, pp00s, pp00v); 
    LEDS.show(); 
 waitOne (); paletteInput ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
     Serial.print ("Pixel:"); Serial.println (ppmode); 
-    Serial.print ("  Hue:"); Serial.println (ppaah); 
-    Serial.print ("  Saturation:"); Serial.println (ppaas);
-    Serial.print ("  Value:"); Serial.println (ppaav); Serial.println();}
+    Serial.print ("  Hue:"); Serial.println (pp00h); 
+    Serial.print ("  Saturation:"); Serial.println (pp00s);
+    Serial.print ("  Value:"); Serial.println (pp00v); Serial.println();}
 
 }
 //Palette Pixel 1
-void ppab () {
-   leds[1] = CHSV(ppabh, ppabs, 0); 
+void pp01 () {
+   leds[1] = CHSV(pp01h, pp01s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-    leds[1] = CHSV(ppabh, ppabs, ppabv); 
+    leds[1] = CHSV(pp01h, pp01s, pp01v); 
     LEDS.show();
 waitOne (); paletteInput ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
     Serial.print ("Pixel:"); Serial.println (ppmode); 
-    Serial.print ("  Hue:"); Serial.println (ppabh); 
-    Serial.print ("  Saturation:"); Serial.println (ppabs);
-    Serial.print ("  Value:"); Serial.println (ppabv); Serial.println();}
+    Serial.print ("  Hue:"); Serial.println (pp01h); 
+    Serial.print ("  Saturation:"); Serial.println (pp01s);
+    Serial.print ("  Value:"); Serial.println (pp01v); Serial.println();}
 }
 //Palette Pixel 2
-void ppac () {
-   leds[2] = CHSV(ppach, ppacs, 0); 
+void pp02 () {
+   leds[2] = CHSV(pp02h, pp02s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-    leds[2] = CHSV(ppach, ppacs, ppacv); 
+    leds[2] = CHSV(pp02h, pp02s, pp02v); 
     LEDS.show();
 waitOne (); paletteInput ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
     Serial.print ("Pixel:"); Serial.println (ppmode); 
-    Serial.print ("  Hue:"); Serial.println (ppach); 
-    Serial.print ("  Saturation:"); Serial.println (ppacs);
-    Serial.print ("  Value:"); Serial.println (ppacv); Serial.println();}
+    Serial.print ("  Hue:"); Serial.println (pp02h); 
+    Serial.print ("  Saturation:"); Serial.println (pp02s);
+    Serial.print ("  Value:"); Serial.println (pp02v); Serial.println();}
 }
 //Palette Pixel 3
 void ppad () {
@@ -1400,61 +1400,61 @@ if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previo
 
 }
 //Palette Pixel 48
-void ppbw() {
-  leds[48] = CHSV(ppbwh, ppbws, 0); 
+void pp48() {
+  leds[48] = CHSV(pp48h, pp48s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-  leds[48] = CHSV(ppbwh, ppbws, ppbwv); 
+  leds[48] = CHSV(pp48h, pp48s, pp48v); 
     LEDS.show();
 waitOne (); paletteInput (); 
 checkpaintserial ();
 
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("48"); Serial.print ("  Hue:"); Serial.println (ppbwh); Serial.print ("  Saturation:"); Serial.println (ppbws); Serial.print ("  Value:"); Serial.println (ppbwv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("48"); Serial.print ("  Hue:"); Serial.println (pp48h); Serial.print ("  Saturation:"); Serial.println (pp48s); Serial.print ("  Value:"); Serial.println (pp48v); Serial.println();}
 
 }
 //Palette Pixel 49
-void ppbx() {
-  leds[49] = CHSV(ppbxh, ppbxs, 0); 
+void pp49() {
+  leds[49] = CHSV(pp49h, pp49s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-  leds[49] = CHSV(ppbxh, ppbxs, ppbxv); 
+  leds[49] = CHSV(pp49h, pp49s, pp49v); 
     LEDS.show();
 waitOne (); paletteInput (); 
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("49"); Serial.print ("  Hue:"); Serial.println (ppbxh); Serial.print ("  Saturation:"); Serial.println (ppbxs); Serial.print ("  Value:"); Serial.println (ppbxv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("49"); Serial.print ("  Hue:"); Serial.println (pp49h); Serial.print ("  Saturation:"); Serial.println (pp49s); Serial.print ("  Value:"); Serial.println (pp49v); Serial.println();}
 
 
 }
 //Palette Pixel 50
-void ppby() {
-  leds[50] = CHSV(ppbyh, ppbys, 0); 
+void pp50() {
+  leds[50] = CHSV(pp50h, pp50s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-  leds[50] = CHSV(ppbyh, ppbys, ppbyv); 
+  leds[50] = CHSV(pp50h, pp50s, pp50v); 
     LEDS.show();
 waitOne (); paletteInput ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("50"); Serial.print ("  Hue:"); Serial.println (ppbyh); Serial.print ("  Saturation:"); Serial.println (ppbys); Serial.print ("  Value:"); Serial.println (ppbyv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("50"); Serial.print ("  Hue:"); Serial.println (pp50h); Serial.print ("  Saturation:"); Serial.println (pp50s); Serial.print ("  Value:"); Serial.println (pp50v); Serial.println();}
 
 }
 //Palette Pixel 51
-void ppbz() {
-  leds[51] = CHSV(ppbzh, ppbzs, 0); 
+void pp51() {
+  leds[51] = CHSV(pp51h, pp51s, 0); 
    LEDS.show(); 
 waitOne (); paletteInput (); 
-  leds[51] = CHSV(ppbzh, ppbzs, ppbzv); 
+  leds[51] = CHSV(pp51h, pp51s, pp51v); 
     LEDS.show();
 waitOne (); paletteInput ();  
 checkpaintserial ();
 unsigned long currentMillisPaintSec = millis();
 if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previousMillisPaintSec = currentMillisPaintSec;
-    Serial.print ("Pixel:"); Serial.println ("51"); Serial.print ("  Hue:"); Serial.println (ppbzh); Serial.print ("  Saturation:"); Serial.println (ppbzs); Serial.print ("  Value:"); Serial.println (ppbzv); Serial.println();}
+    Serial.print ("Pixel:"); Serial.println ("51"); Serial.print ("  Hue:"); Serial.println (pp51h); Serial.print ("  Saturation:"); Serial.println (pp51s); Serial.print ("  Value:"); Serial.println (pp51v); Serial.println();}
 }
 //Palette Pixel 52
 void ppca() {
@@ -2066,9 +2066,9 @@ if (currentMillisPaintSec - previousMillisPaintSec >= intervalPaintSec) { previo
 }
 
 void showPalette () { 
-leds[0] = CHSV(ppaah, ppaas, ppaav); 
-leds[1] = CHSV(ppabh, ppabs, ppabv); 
-leds[2] = CHSV(ppach, ppacs, ppacv); 
+leds[0] = CHSV(pp00h, pp00s, pp00v); 
+leds[1] = CHSV(pp01h, pp01s, pp01v); 
+leds[2] = CHSV(pp02h, pp02s, pp02v); 
 leds[3] = CHSV(ppadh, ppads, ppadv);   
 leds[4] = CHSV(ppaeh, ppaes, ppaev); 
 leds[5] = CHSV(ppafh, ppafs, ppafv);  
@@ -2114,10 +2114,10 @@ leds[44] = CHSV(ppbsh, ppbss, ppbsv);
 leds[45] = CHSV(ppbth, ppbts, ppbtv); 
 leds[46] = CHSV(ppbuh, ppbus, ppbuv); 
 leds[47] = CHSV(ppbvh, ppbvs, ppbvv);  
-leds[48] = CHSV(ppbwh, ppbws, ppbwv); 
-leds[49] = CHSV(ppbxh, ppbxs, ppbxv); 
-leds[50] = CHSV(ppbyh, ppbys, ppbyv); 
-leds[51] = CHSV(ppbzh, ppbzs, ppbzv); 
+leds[48] = CHSV(pp48h, pp48s, pp48v); 
+leds[49] = CHSV(pp49h, pp49s, pp49v); 
+leds[50] = CHSV(pp50h, pp50s, pp50v); 
+leds[51] = CHSV(pp51h, pp51s, pp51v); 
 leds[52] = CHSV(ppcah, ppcas, ppcav); 
 leds[53] = CHSV(ppcbh, ppcbs, ppcbv); 
 leds[54] = CHSV(ppcch, ppccs, ppccv); 

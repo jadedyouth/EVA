@@ -51,42 +51,127 @@ void RedGreenBlue () {  ///just cycles. it's annoying. I need to rewrite the way
    leds[i] = CHSV(0, 255, 255); }
    LEDS.show(); 
    waitFive();
-    checkinput (); snesIn ();
+    btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+    waitFive(); 
+           btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+    waitFive();  
+     btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
     waitFive();
-    checkinput (); snesIn ();
-    waitFive();
-    checkinput ();
-    waitFive();
-    checkinput (); snesIn ();
+      
+      btns = Spad.getButtons(false); //check to see if user is asking you to do something else
+      if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { //otherwise keep going
+      
+     
  for(int i = 0; i < LED_COUNT; i++) {
    leds[i] = CHSV(96, 255, 255); }
    LEDS.show(); 
      waitFive();
-    checkinput (); snesIn ();
+    btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
     waitFive();
-    checkinput (); snesIn ();
+               btns = Spad.getButtons(false);
+      if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+  
     waitFive();
-    checkinput (); snesIn ();
+     btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+   
     waitFive();
-    checkinput (); snesIn ();
+
+            btns = Spad.getButtons(false);
+      if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+   
    for(int i = 0; i < LED_COUNT; i++) {
    leds[i] = CHSV(160, 255, 255); }
    LEDS.show(); 
     waitFive();
-    checkinput (); snesIn ();
-    waitFive();
-    checkinput (); snesIn ();
-    waitFive();
-    checkinput (); snesIn ();
-    waitFive();
-    checkinput (); snesIn ();
-}
+    btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
 
+ else { 
+    waitFive();
+    btns = Spad.getButtons(false);
+      if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+    
+    waitFive();
+     btns = Spad.getButtons(false);
+        if(!(btns & BTN_DOWN)) (!(btns & BTN_DOWN)); else if (!(btns & BTN_UP)); else if (!(btns & BTN_L)); else if (!(btns & BTN_START)){ snesIn ();}
+     else  if (Serial.available() > 0)  {
+    checkinput(); 
+     }
+
+ else { 
+    
+    waitFive();
+    
+}
+ }//11
+ }//10
+ } //9
+ } //8
+ } //7
+ } //6
+ } //5th
+ } //4th
+ } //third
+ } //2nd else
+} //1st else
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void white () {
    for(int i = 0; i < LED_COUNT; i++) {
-   leds[i] = CRGB::Red; }
+   leds[i] = CRGB::Purple; }
    LEDS.show(); 
 }
 

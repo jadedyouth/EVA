@@ -43,7 +43,7 @@ void welcome () { //startup mode flashes through red, blue and green on all pixe
    
    Serial.print("            "); Serial.print("W"); waitSix(); Serial.print("E"); waitSix(); Serial.print("L"); waitSix(); Serial.print("C"); waitSix(); Serial.print("O"); waitSix(); 
    Serial.print("M"); waitSix(); Serial.print("E"); waitSix(); Serial.print(" "); waitSix(); Serial.print("B"); waitSix(); Serial.print("A"); waitSix(); 
-   Serial.print("C"); waitSix(); Serial.print("K"); waitSix(); Serial.print(" "); waitSix(); Serial.print("C"); waitSix(); Serial.print("O"); waitSix();
+   Serial.print("C"); waitSix(); Serial.print("K"); waitSix(); Serial.print(","); waitSix(); Serial.print(" "); waitSix(); Serial.print("C"); waitSix(); Serial.print("O"); waitSix();
    Serial.print("M"); waitSix(); Serial.print("M"); waitSix(); Serial.print("A"); waitSix(); Serial.print("N"); waitSix(); Serial.print("D"); waitSix(); 
    Serial.print("E"); waitSix(); Serial.println("R");  waitSeven();
  
@@ -58,7 +58,7 @@ void showindex() { // basic menu and list of commands
 Serial.println();
 Serial.println("Electronic Video Agent (EVA)");
 waitEight();
-Serial.println("Last Updated 19-10-2016"); //////////////////////////////////////////////////////UPDATE DATE i'll find a way to automate this later
+Serial.println("Last Updated 28-10-2016"); //////////////////////////////////////////////////////UPDATE DATE i'll find a way to automate this later
 waitEight();
 Serial.println();
 Serial.println("Input Index:");
@@ -78,7 +78,7 @@ Serial.println(",: PSU ON");
 
 }
 
-void tutorial() { //this is from an old thing i made. Kept it here cause some of it will be usefule later.
+void tutorial() { //this is from an old thing i made. Kept it here cause some of it will be useful later.
 
  Serial.println();
  Serial.println("This is your 3 step tutorial");
